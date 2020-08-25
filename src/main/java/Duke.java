@@ -35,26 +35,29 @@ public class Duke {
         greet();
         Scanner in = new Scanner(System.in);
         String line = in.nextLine();
-        String[] items = new String[100];
+
+        Task[] t = new Task[100];
 
         int index = 0;
 
         while (!line.equals("bye")){
+
+            printLine();
             if (line.equals("list")){
-                printLine();
                 for (int i = 0; i < index; i++){
-                    System.out.println((i+1) + ". " + items[i]);
+                    t[i].printTask(i);
                 }
-                printLine();
+            }
+            else if (line.startsWith("done")){
+                int l = Integer.parseInt(line.substring(5, line.length())) - 1;
+                t[l].markAsDone();
             }
             else {
-                items[index] = line;
+                t[index] = new Task(line);
                 index++;
-                printLine();
                 System.out.println("added: " + line);
-                printLine();
             }
-
+            printLine();
 
             line = in.nextLine();
         }
