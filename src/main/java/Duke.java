@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Duke {
 
     public static void printLine(){
-        System.out.println("______________________________________________________________________");
+        System.out.println("--------------------------------------------------");
     }
 
     public static void greet(){
@@ -35,9 +35,27 @@ public class Duke {
         greet();
         Scanner in = new Scanner(System.in);
         String line = in.nextLine();
+        String[] items = new String[100];
+
+        int index = 0;
 
         while (!line.equals("bye")){
-            echo(line);
+            if (line.equals("list")){
+                printLine();
+                for (int i = 0; i < index; i++){
+                    System.out.println((i+1) + ". " + items[i]);
+                }
+                printLine();
+            }
+            else {
+                items[index] = line;
+                index++;
+                printLine();
+                System.out.println("added: " + line);
+                printLine();
+            }
+
+
             line = in.nextLine();
         }
 
