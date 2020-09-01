@@ -8,8 +8,7 @@ public class Duke {
 
     public static void greet(){
         printLine();
-        System.out.println("Hello! I'm Duke\n" +
-                "What can I do for you?");
+        System.out.println("Hello! I'm Duke\n" + "What can I do for you?");
         printLine();
     }
 
@@ -30,6 +29,7 @@ public class Duke {
         System.out.println("    " + message);
         System.out.println("Now you have " + i + (i == 1 ? " task" : " tasks") + " in your list.");
     }
+
 
     public static void main(String[] args) {
         String logo = " ____        _        \n"
@@ -61,7 +61,7 @@ public class Duke {
 
             // mark as done
             else if (line.startsWith("done")){
-                int l = Integer.parseInt(line.substring(5, line.length())) - 1;
+                int l = Integer.parseInt(line.substring(5)) - 1;
                 t[l].markAsDone();
             }
 
