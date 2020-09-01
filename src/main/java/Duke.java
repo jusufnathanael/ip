@@ -95,11 +95,10 @@ public class Duke {
             }
 
             printLine();
-
             line = in.nextLine();
         }
 
         bye();
-
     }
+
 }
