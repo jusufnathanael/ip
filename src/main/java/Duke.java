@@ -18,12 +18,6 @@ public class Duke {
         printLine();
     }
 
-    public static void echo(String line){
-        printLine();
-        System.out.println(line);
-        printLine();
-    }
-
     public static void bye(){
         printLine();
         System.out.println("Bye. Hope to see you again soon!");
@@ -46,7 +40,7 @@ public class Duke {
             t[l].markAsDone();
         }
 
-        // deadline
+        // new deadline
         else if (message.startsWith("deadline")){
             t[index] = new Deadline(message.substring(9, message.indexOf(" /")),
                     message.substring(message.indexOf("/by") + 4));
@@ -54,14 +48,14 @@ public class Duke {
             index++;
         }
 
-        // todo
+        // new todo
         else if (message.startsWith("todo")){
             t[index] = new Todo(message.substring(5));
             acknowledgement(t[index], index+1);
             index++;
         }
 
-        // event
+        // new event
         else if (message.startsWith("event")){
             t[index] = new Event(message.substring(6, message.indexOf(" /")),
                     message.substring(message.indexOf("/at") + 4));
@@ -69,6 +63,7 @@ public class Duke {
             index++;
         }
 
+        // throw exception
         else {
             throw new DukeException();
         }
