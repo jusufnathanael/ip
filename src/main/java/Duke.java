@@ -91,7 +91,6 @@ public class Duke {
 
         // main loop
         while (!message.equals("bye")){
-
             printLine();
             try {
                 index = addTask(t, message, index);
@@ -103,7 +102,6 @@ public class Duke {
                 System.out.println("OOPS!!! The description of a " + message + " cannot be empty.");
             }
             printLine();
-
             message = in.nextLine();
         }
 
