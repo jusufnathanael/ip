@@ -174,7 +174,6 @@ public class Duke {
 
         ArrayList<Task> t = new ArrayList<>();
         int index = 0;
-
         index = initialisation(t, index);
 
         Scanner in = new Scanner(System.in);
