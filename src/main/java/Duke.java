@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Duke {
 
@@ -29,8 +31,8 @@ public class Duke {
 
         // list
         if (message.equals("list")){
-            for (int i = 0; i < index; i++){
-                System.out.print(i+1 + ". ");
+            for (int i = 0; i < index; i++) {
+                System.out.print(i + 1 + ". ");
                 System.out.println(t.get(i));
             }
         }
@@ -76,6 +78,7 @@ public class Duke {
             throw new DukeException();
         }
 
+        prepareWriteToFile(t);
         return index;
     }
 
@@ -90,12 +93,29 @@ public class Duke {
         System.out.println("Now you have " + i + (i == 1 ? " task" : " tasks") + " in your list.");
     }
 
+    public static void prepareWriteToFile (ArrayList<Task> tasks){
+        StringBuilder message = new StringBuilder();
+        for (Task t :tasks) {
+            message.append(t).append(System.lineSeparator());
+        }
+        try {
+            writeToFile("data/data.txt", message.toString());
+        }
+        catch (IOException e){
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+
+    public static void writeToFile(String filePath, String message) throws IOException{
+        FileWriter fw = new FileWriter(filePath);
+        fw.write(message);
+        fw.close();
+    }
+
 
     public static void main(String[] args) {
 
         ArrayList<Task> t = new ArrayList<>();
-
-        //Task[] t = new Task[100];
         int index = 0;
 
         greet();
