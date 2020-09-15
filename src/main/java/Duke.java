@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Duke {
 
@@ -24,43 +25,50 @@ public class Duke {
         printLine();
     }
 
-    public static int addTask(Task[] t, String message, int index) throws DukeException {
+    public static int addTask(ArrayList<Task> t, String message, int index) throws DukeException {
 
         // list
         if (message.equals("list")){
             for (int i = 0; i < index; i++){
                 System.out.print(i+1 + ". ");
-                System.out.println(t[i]);
+                System.out.println(t.get(i));
             }
         }
 
         // mark as done
         else if (message.startsWith("done")){
             int l = Integer.parseInt(message.substring(5)) - 1;
-            t[l].markAsDone();
+            t.get(l).markAsDone();
         }
 
         // new deadline
         else if (message.startsWith("deadline")){
-            t[index] = new Deadline(message.substring(9, message.indexOf(" /")),
-                    message.substring(message.indexOf("/by") + 4));
-            acknowledgement(t[index], index+1);
+            t.add(new Deadline(message.substring(9, message.indexOf(" /")),
+                    message.substring(message.indexOf("/by") + 4)));
+            acknowledgement(t.get(index), "add",index+1);
             index++;
         }
 
         // new todo
         else if (message.startsWith("todo")){
-            t[index] = new Todo(message.substring(5));
-            acknowledgement(t[index], index+1);
+            t.add(new Todo(message.substring(5)));
+            acknowledgement(t.get(index), "add", index+1);
             index++;
         }
 
         // new event
         else if (message.startsWith("event")){
-            t[index] = new Event(message.substring(6, message.indexOf(" /")),
-                    message.substring(message.indexOf("/at") + 4));
-            acknowledgement(t[index], index+1);
+            t.add(new Event(message.substring(6, message.indexOf(" /")),
+                    message.substring(message.indexOf("/at") + 4)));
+            acknowledgement(t.get(index), "add", index+1);
             index++;
+        }
+
+        // delete task
+        else if (message.startsWith("delete")){
+            int l = Integer.parseInt(message.substring(7)) - 1;
+            acknowledgement(t.get(l), "del", --index);
+            t.remove(t.get(l));
         }
 
         // throw exception
@@ -71,8 +79,13 @@ public class Duke {
         return index;
     }
 
-    public static void acknowledgement(Task message, int i){
-        System.out.println("Got it. I've added this task:");
+    public static void acknowledgement(Task message, String note, int i){
+        if (note.equals("add")) {
+            System.out.println("Got it. I've added this task:");
+        }
+        else {
+            System.out.println("Got it. I've removed this task:");
+        }
         System.out.println("    " + message);
         System.out.println("Now you have " + i + (i == 1 ? " task" : " tasks") + " in your list.");
     }
@@ -80,7 +93,9 @@ public class Duke {
 
     public static void main(String[] args) {
 
-        Task[] t = new Task[100];
+        ArrayList<Task> t = new ArrayList<>();
+
+        //Task[] t = new Task[100];
         int index = 0;
 
         greet();
