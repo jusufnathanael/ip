@@ -178,7 +178,7 @@ public class Duke {
 
         Scanner in = new Scanner(System.in);
         String message = in.nextLine();
-        
+
         // main loop
         while (!message.equals("bye")){
             printLine();
@@ -197,5 +197,4 @@ public class Duke {
 
         bye();
     }
-
 }
