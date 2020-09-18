@@ -71,12 +71,7 @@ public class Duke {
                 t.add(newTask);
             }
 
-            /*if (temp.indexOf(4) == 1){
-
-                newTask.markAsDone();
-            }*/
             index++;
-            //s.nextLine();
         }
         return index;
     }
