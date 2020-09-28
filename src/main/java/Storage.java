@@ -1,5 +1,3 @@
-import tasks.Task;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -7,10 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import tasks.Task;
+
+
 public class Storage {
 
     private static final String DIVIDER = "-------------------------------------------------------";
-    private static final String STORAGE_PATH = "duke.txt";
 
     private static String path;
     private static Command c;

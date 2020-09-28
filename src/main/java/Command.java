@@ -1,7 +1,10 @@
-import tasks.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
+
+import tasks.Task;
+import tasks.Deadline;
+import tasks.Event;
+import tasks.Todo;
 
 
 public class Command {
@@ -16,10 +19,14 @@ public class Command {
         this.message = message;
     }
 
+    public boolean getIsExit() {
+        return this.isExit;
+    }
     public void execute(ArrayList<Task> t, Ui ui, Storage storage) throws DukeException {
 
         if (command.equals("bye")) {
             this.isExit = true;
+            ui.printByeMessage();
         } else if (command.equals("list")) {
             ui.printList(t);
         } else if (command.equals("done")) {

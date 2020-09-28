@@ -1,74 +1,62 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import tasks.Task;
-import tasks.Deadline;
-import tasks.Event;
-import tasks.Todo;
 
 
 public class Duke {
 
     private static Ui ui;
     private static Storage storage;
+    private final ArrayList<Task> tasks;
 
-    private static void initialisation(ArrayList<Task> t){
-
+    public Duke(String filePath){
+        ui = new Ui();
+        ui.printWelcomeMessage();
         try {
-            storage = new Storage("data/data.txt");
-            storage.readFile(t);
+            storage = new Storage(filePath);
         }
-        catch (InvalidFilePathException | FileNotFoundException e){
+        catch (InvalidFilePathException e){
+            System.out.println("File does not end with .txt");
+        }
+        tasks = new ArrayList<Task>();
+        try {
+            storage.readFile(tasks);
+        }
+        catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
 
 
-    public static void main(String[] args) {
-        //run();
-        ui = new Ui();
-        ui.printWelcomeMessage();
+    public void run() {
 
-        ArrayList<Task> t = new ArrayList<Task>();
-        initialisation(t);
-
+        boolean isExit = false;
         Scanner in = new Scanner(System.in);
-        String message = in.nextLine();
-
-        try {
-            storage = new Storage("data/data.txt");
-        }
-        catch (InvalidFilePathException e){
-            System.out.println(e.getMessage());
-        }
-        // main loop
-        while (!message.equals("bye")){
+        
+        while (!isExit) {
+            String message = in.nextLine();
             ui.printLine();
-
             try {
                 Command c = new Command(message);
-                c.execute(t, ui, storage);
-            }
-            catch (DukeException e){
+                c.execute(tasks, ui, storage);
+                isExit = c.getIsExit();
+            } catch (DukeException e) {
                 System.out.println("OOPS!!! I'm sorry, but I don't know what that means.");
-            }
-            catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("OOPS!!! The description of a " + message + " cannot be empty.");
-            }
-            catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println("Index out of bound");
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println(e);
             }
             ui.printLine();
-            message = in.nextLine();
         }
 
-        ui.printByeMessage();
+    }
+
+    public static void main(String[] args) {
+        new Duke("data/data.txt").run();
     }
 }

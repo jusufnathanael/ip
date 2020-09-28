@@ -1,10 +1,9 @@
-import org.w3c.dom.css.DOMImplementationCSS;
-import tasks.Task;
-
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import tasks.Task;
 
 
 public class Ui {
@@ -39,7 +38,7 @@ public class Ui {
     }
 
     public void printByeMessage(){
-        System.out.println(DIVIDER + BREAK + "Bye. Hope to see you again soon!\n" + DIVIDER);
+        System.out.println("Bye. Hope to see you again soon!");
     }
 
     public void printDoneMessage(String icon, String description) {
