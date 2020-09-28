@@ -47,9 +47,9 @@ public class Duke {
             } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("OOPS!!! The description of a " + message + " cannot be empty.");
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Index out of bound");
+                System.out.println("Index out of bound!");
             } catch (NumberFormatException e) {
-                System.out.println(e);
+                System.out.println("Wrong number format!");
             }
             ui.printLine();
         }

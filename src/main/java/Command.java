@@ -22,7 +22,7 @@ public class Command {
     public boolean getIsExit() {
         return this.isExit;
     }
-    
+
 
     public void execute(ArrayList<Task> t, Ui ui, Storage storage) throws DukeException {
 

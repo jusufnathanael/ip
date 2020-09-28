@@ -64,7 +64,7 @@ public class Storage {
                 c.addReadFile(t, done);
             }
             catch (DukeException e){
-                System.out.println("Ngaco woi!");
+                System.out.println("Cannot read file!");
             }
         }
 
