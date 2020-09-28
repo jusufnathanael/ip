@@ -1,3 +1,5 @@
+package tasks;
+
 public class Task {
 
     protected String description;
@@ -12,11 +14,18 @@ public class Task {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
     }
 
-    public void markAsDone(){
-        this.isDone = true;
-        System.out.println("Nice! I've marked this task as done:");
-        System.out.println("[" + getStatusIcon() + "] " + this.description);
+    public int getIsDone() {
+        return this.isDone ? 1 : 0;
     }
+
+    public void markAsDone() {
+        this.isDone = true;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }
