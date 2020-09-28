@@ -22,6 +22,8 @@ public class Command {
     public boolean getIsExit() {
         return this.isExit;
     }
+    
+
     public void execute(ArrayList<Task> t, Ui ui, Storage storage) throws DukeException {
 
         if (command.equals("bye")) {
@@ -57,6 +59,7 @@ public class Command {
         }
 
     }
+
 
     public void addReadFile(ArrayList<Task> t, int done) throws DukeException {
         Task task;

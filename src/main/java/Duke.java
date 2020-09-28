@@ -11,13 +11,13 @@ public class Duke {
     private static Storage storage;
     private final ArrayList<Task> tasks;
 
-    public Duke(String filePath){
+    public Duke(String filePath) {
         ui = new Ui();
         ui.printWelcomeMessage();
         try {
             storage = new Storage(filePath);
         }
-        catch (InvalidFilePathException e){
+        catch (InvalidFilePathException e) {
             System.out.println("File does not end with .txt");
         }
         tasks = new ArrayList<Task>();
@@ -34,7 +34,7 @@ public class Duke {
 
         boolean isExit = false;
         Scanner in = new Scanner(System.in);
-        
+
         while (!isExit) {
             String message = in.nextLine();
             ui.printLine();
