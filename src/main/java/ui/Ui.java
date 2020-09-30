@@ -35,7 +35,7 @@ public class Ui {
         System.out.println(DIVIDER);
     }
 
-    public void printWelcomeMessage(){
+    public void printWelcomeMessage() {
         System.out.println(LOGO + BREAK + "Hello! I'm Duke\n" + "What can I do for you?\n" + DIVIDER);
     }
 
@@ -48,7 +48,7 @@ public class Ui {
         System.out.println("[" + icon + "] " + description);
     }
 
-    public void acknowledge(Task message, String note, int i){
+    public void acknowledge(Task message, String note, int i) {
         if (note.equals("add")) {
             System.out.println("Got it. I've added this task:");
         } else {
@@ -58,10 +58,27 @@ public class Ui {
         System.out.println("Now you have " + i + (i == 1 ? " task" : " tasks") + " in your list.");
     }
 
-    public void printList(ArrayList<Task> t){
+    public void printList(ArrayList<Task> t) {
         for (int i = 0; i < t.size(); i++) {
             System.out.print(i + 1 + ". ");
             System.out.println(t.get(i));
+        }
+    }
+
+    public void findItem(ArrayList<Task> tasks, String keyword) {
+        ArrayList<Task> result = new ArrayList<>();
+        int count = 0;
+        for (Task t: tasks) {
+            if (t.toString().contains(keyword)) {
+                result.add(t);
+                count++;
+            }
+        }
+        if (count == 0) {
+            System.out.println("Sorry, we found no item with \"" + keyword + "\" in the list.");
+        } else {
+            System.out.println("We found " + count + " item in the list:");
+            this.printList(result);
         }
     }
 

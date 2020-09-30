@@ -29,6 +29,8 @@ public class Parser {
                 return new Command(Command.EVENT, message);
             case Command.TODO:
                 return new Command(Command.TODO, message);
+            case Command.FIND:
+                return new Command(Command.FIND, message);
             case Command.BYE:
                 return new Command(Command.BYE);
             default:

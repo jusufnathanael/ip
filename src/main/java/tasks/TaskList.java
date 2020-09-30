@@ -53,6 +53,11 @@ public class TaskList {
         tasks.add(new Todo(message));
     }
 
+    public void find(String message) {
+        String keyword = message.substring(5);
+        ui.findItem(tasks, keyword);
+    }
+
     public void acknowledge(){
         ui.acknowledge(tasks.get(tasks.size() - 1), "add", tasks.size());
     }
