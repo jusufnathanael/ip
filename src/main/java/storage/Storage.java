@@ -17,11 +17,17 @@ import tasks.TaskList;
 import ui.Ui;
 
 
-
+/**
+ * Represents the file used to store the tasks.
+ */
 public class Storage {
 
     private static String path;
 
+    /**
+     * @throws InvalidFilePathException if the input path is invalid
+     * @param filePath filePath from the user
+     */
     public Storage(String filePath) throws InvalidFilePathException {
         path = filePath;
         if (!path.endsWith(".txt")) {
@@ -29,6 +35,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Encodes all the tasks into String before writing to the storage file.
+     *
+     * @param tasks current list of tasks
+     * @return String consisting all the encoded tasks
+     */
     public String encodeList(ArrayList<Task> tasks) {
         StringBuilder line = new StringBuilder();
         for (Task t: tasks){
@@ -40,12 +52,24 @@ public class Storage {
         return line.toString();
     }
 
+    /**
+     * Saves the data to the storage file.
+     *
+     * @throws IOException if there were errors when storing the data to the file
+     * @param t current list of tasks
+     */
     public void writeToFile(ArrayList<Task> t) throws IOException {
         FileWriter fw = new FileWriter(path);
         fw.write(encodeList(t));
         fw.close();
     }
 
+    /**
+     * Decodes the data from the storage file into the same format as the correct user input
+     *
+     * @param message one line from the storage file
+     * @return formatted input string
+     */
     public String decodeLine(String message) {
         StringBuilder returnMessage = new StringBuilder();
         if (message.startsWith("T")) {
@@ -58,6 +82,13 @@ public class Storage {
         return returnMessage.append(message.substring(3)).toString();
     }
 
+
+    /**
+     * Loads the data from the storage file to a new TaskList
+     *
+     * @throws FileNotFoundException if the storage file is not found
+     * @return the loaded list of tasks
+     */
     public ArrayList<Task> load() throws FileNotFoundException {
 
         File f = new File(path);

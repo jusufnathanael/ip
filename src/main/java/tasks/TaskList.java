@@ -1,12 +1,14 @@
 package tasks;
 
-import java.time.DateTimeException;
 import java.util.ArrayList;
 
 import exceptions.DukeException;
 import ui.Ui;
 
 
+/**
+ * Represents the entire task list. Contains the data of each task.
+ */
 public class TaskList {
 
     private final ArrayList<Task> tasks;

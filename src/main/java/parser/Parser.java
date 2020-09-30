@@ -3,11 +3,20 @@ package parser;
 import commands.Command;
 import exceptions.DukeException;
 
+
+/**
+ * Parses user input into specific commands.
+ */
 public class Parser {
 
     private static String command;
     private static String message;
 
+    /**
+     * Parses user input into specific commands.
+     *
+     * @param line full user input string
+     */
     public Parser(String line) {
         if (line.contains(" ")) {
             command = line.substring(0, line.indexOf(" "));
@@ -21,6 +30,11 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Passes the parsed command from the user input for execution.
+     *
+     * @return the command based on the user input
+     */
     public Command parseCommand() throws DukeException {
 
         switch(command) {

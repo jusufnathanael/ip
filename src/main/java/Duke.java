@@ -11,13 +11,21 @@ import tasks.TaskList;
 import ui.Ui;
 
 
+/**
+ * Main class for the application.
+ */
 public class Duke {
 
     private static Ui ui;
     private static Storage storage;
     private static TaskList tasks;
 
-
+    /**
+     * Initialises the application and starts the interaction with the user.
+     * Loads the storage file.
+     *
+     * @param filePath filePath from the main function
+     */
     public Duke(String filePath) {
         ui = new Ui();
         ui.printCurrentDate();
@@ -35,6 +43,9 @@ public class Duke {
     }
 
 
+    /**
+     * Executes the main program.
+     */
     public void run() {
 
         boolean isExit = false;
