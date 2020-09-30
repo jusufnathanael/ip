@@ -18,12 +18,12 @@ public class Deadline extends Task {
      */
     public Deadline(String message) throws DateTimeException {
         super(message);
-        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /by "));
-        this.by = LocalDate.parse(message.substring(message.indexOf("/by ") + 4));
+        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" by: "));
+        this.by = LocalDate.parse(message.substring(message.indexOf("by: ") + 4));
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " /by " + by;
+        return "[D]" + super.toString() + " by: " + by;
     }
 }
