@@ -6,7 +6,7 @@ public class Event extends Task {
 
     public Event(String message) {
         super(message);
-        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /"));
+        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /at"));
         this.at = message.substring(message.indexOf("/at") + 4);
     }
 

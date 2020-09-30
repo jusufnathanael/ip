@@ -1,15 +1,22 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.io.FileNotFoundException;
 
-import tasks.Task;
+import exceptions.DukeException;
+import exceptions.InvalidFilePathException;
+
+import commands.Command;
+import parser.Parser;
+import storage.Storage;
+import tasks.TaskList;
+import ui.Ui;
 
 
 public class Duke {
 
     private static Ui ui;
     private static Storage storage;
-    private final ArrayList<Task> tasks;
+    private static TaskList tasks;
+
 
     public Duke(String filePath) {
         ui = new Ui();
@@ -20,9 +27,8 @@ public class Duke {
         catch (InvalidFilePathException e) {
             System.out.println("File does not end with .txt");
         }
-        tasks = new ArrayList<Task>();
         try {
-            storage.readFile(tasks);
+            tasks = new TaskList(storage.load());
         }
         catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -39,7 +45,7 @@ public class Duke {
             String message = in.nextLine();
             ui.printLine();
             try {
-                Command c = new Command(message);
+                Command c = Parser.parseCommand(message);
                 c.execute(tasks, ui, storage);
                 isExit = c.getIsExit();
             } catch (DukeException e) {

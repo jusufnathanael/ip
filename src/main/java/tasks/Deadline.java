@@ -6,7 +6,7 @@ public class Deadline extends Task {
 
     public Deadline(String message) {
         super(message);
-        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /"));
+        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /by"));
         this.by = message.substring(message.indexOf("/by") + 4);
     }
 
