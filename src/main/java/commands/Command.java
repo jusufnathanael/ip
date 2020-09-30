@@ -21,15 +21,11 @@ public class Command {
     public static final String FIND = "find";
     public static final String BYE = "bye";
 
-
     private final String command;
     private final String message;
     private boolean isExit = false;
 
-    public Command (){
-        this.command = "";
-        this.message = "";
-    }
+
     public Command (String command){
         this.command = command;
         this.message = "";
@@ -64,6 +60,8 @@ public class Command {
         } else if (command.equals(TODO)) {
             tasks.todo(message);
             tasks.acknowledge();
+        } else if (command.equals(FIND)) {
+            tasks.find(message);
         } else if (command.equals(CLEAR)) {
             tasks.clear();
         } else {
