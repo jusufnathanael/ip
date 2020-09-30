@@ -14,17 +14,13 @@ import commands.Command;
 import parser.Parser;
 import tasks.Task;
 import tasks.TaskList;
+import ui.Ui;
 
 
 
 public class Storage {
 
-    private static final String DIVIDER = "-------------------------------------------------------";
-
     private static String path;
-    private static Command c;
-    private static TaskList tasks;
-
 
     public Storage(String filePath) throws InvalidFilePathException {
         path = filePath;
@@ -66,13 +62,14 @@ public class Storage {
 
         File f = new File(path);
         Scanner s = new Scanner(f); // create a Scanner using the File as the source
-        tasks = new TaskList();
+        TaskList tasks = new TaskList();
 
         while (s.hasNext()) {
             String message = s.nextLine();
             try {
                 int done = Integer.parseInt(String.valueOf(message.charAt(1)));
-                Command c = Parser.parseCommand(decodeLine(message));
+                Parser p = new Parser(decodeLine(message));
+                Command c = p.parseCommand();
                 c.addReadFile(tasks, done);
             }
             catch (DukeException e){
@@ -80,7 +77,7 @@ public class Storage {
             }
         }
 
-        System.out.println(DIVIDER);
+        System.out.println(new Ui().DIVIDER);
         return tasks.getTask();
     }
 

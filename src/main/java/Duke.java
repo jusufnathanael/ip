@@ -20,17 +20,16 @@ public class Duke {
 
     public Duke(String filePath) {
         ui = new Ui();
+        ui.printCurrentDate();
         ui.printWelcomeMessage();
         try {
             storage = new Storage(filePath);
-        }
-        catch (InvalidFilePathException e) {
+        } catch (InvalidFilePathException e) {
             System.out.println("File does not end with .txt");
         }
         try {
             tasks = new TaskList(storage.load());
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
     }
@@ -45,17 +44,18 @@ public class Duke {
             String message = in.nextLine();
             ui.printLine();
             try {
-                Command c = Parser.parseCommand(message);
+                Parser p = new Parser(message);
+                Command c = p.parseCommand();
                 c.execute(tasks, ui, storage);
                 isExit = c.getIsExit();
             } catch (DukeException e) {
                 System.out.println("OOPS!!! I'm sorry, but I don't know what that means.");
             } catch (StringIndexOutOfBoundsException e) {
-                System.out.println("OOPS!!! The description of a " + message + " cannot be empty.");
+                ui.printCorrectFormat(new Parser(message).getCommand());
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Index out of bound!");
+                System.out.println("OOPS!!! The input index is out of bound.");
             } catch (NumberFormatException e) {
-                System.out.println("Wrong number format!");
+                System.out.println("OOPS!!! The input should be a number.");
             }
             ui.printLine();
         }

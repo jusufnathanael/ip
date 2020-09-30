@@ -1,13 +1,17 @@
 package tasks;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+
+
 public class Event extends Task {
 
-    protected String at;
+    protected LocalDate at;
 
-    public Event(String message) {
+    public Event(String message) throws DateTimeException {
         super(message);
-        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /at"));
-        this.at = message.substring(message.indexOf("/at") + 4);
+        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /at "));
+        this.at = LocalDate.parse(message.substring(message.indexOf("/at ") + 4));
     }
 
     public String toString() {

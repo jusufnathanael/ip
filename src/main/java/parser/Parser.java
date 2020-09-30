@@ -5,14 +5,23 @@ import exceptions.DukeException;
 
 public class Parser {
 
-    public static Command parseCommand(String message) throws DukeException {
+    private static String command;
+    private static String message;
 
-        String command;
-        if (message.contains(" ")) {
-            command = message.substring(0, message.indexOf(" "));
+    public Parser(String line) {
+        if (line.contains(" ")) {
+            command = line.substring(0, line.indexOf(" "));
         } else {
-            command = message;
+            command = line;
         }
+        message = line;
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public Command parseCommand() throws DukeException {
 
         switch(command) {
             case Command.LIST:
@@ -34,7 +43,6 @@ public class Parser {
             case Command.BYE:
                 return new Command(Command.BYE);
             default:
-                System.out.println("Command not found!");
                 throw new DukeException();
         }
 

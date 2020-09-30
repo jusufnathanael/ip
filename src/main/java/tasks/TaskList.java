@@ -1,5 +1,6 @@
 package tasks;
 
+import java.time.DateTimeException;
 import java.util.ArrayList;
 import ui.Ui;
 
@@ -58,20 +59,20 @@ public class TaskList {
         ui.findItem(tasks, keyword);
     }
 
-    public void acknowledge(){
+    public void acknowledge() {
         ui.acknowledge(tasks.get(tasks.size() - 1), "add", tasks.size());
     }
 
-    public void loadMarkAsDone(){
+    public void loadMarkAsDone() {
         tasks.get(tasks.size() - 1).markAsDone();
     }
 
-    public boolean bye(){
+    public boolean bye() {
         ui.printByeMessage();
         return true;
     }
 
-    public void printTask(){
+    public void printTask() {
         System.out.println(tasks.get(tasks.size() - 1));
     }
 
