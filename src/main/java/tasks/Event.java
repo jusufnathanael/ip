@@ -18,12 +18,12 @@ public class Event extends Task {
      */
     public Event(String message) throws DateTimeException {
         super(message);
-        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" /at "));
-        this.at = LocalDate.parse(message.substring(message.indexOf("/at ") + 4));
+        this.description = message.substring(message.indexOf(' ') + 1, message.indexOf(" at: "));
+        this.at = LocalDate.parse(message.substring(message.indexOf("at: ") + 4));
     }
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " /at " + at;
+        return "[E]" + super.toString() + " at: " + at;
     }
 }

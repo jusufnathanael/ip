@@ -142,10 +142,10 @@ public class Ui {
     public void printCorrectFormat(String command) {
         if (command.equals(Command.DEADLINE)) {
             System.out.println("OOPS!!! Please use this format: " +
-                    "deadline <description> /by YYYY-MM-DD");
+                    "deadline <description> by: YYYY-MM-DD");
         } else if (command.equals(Command.EVENT)) {
             System.out.println("OOPS!!! Please use this format: " +
-                    "event <description> /at YYYY-MM-DD");
+                    "event <description> at: YYYY-MM-DD");
         } else if (command.equals(Command.TODO)){
             System.out.println("OOPS!!! Please use this format: " +
                     "todo <description>");
