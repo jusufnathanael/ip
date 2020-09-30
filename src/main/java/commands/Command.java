@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.DukeException;
 import java.io.IOException;
+import java.time.DateTimeException;
 
 import storage.Storage;
 import tasks.TaskList;
@@ -40,7 +41,6 @@ public class Command {
         return this.isExit;
     }
 
-
     public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
 
         if (command.equals(BYE)) {
@@ -52,11 +52,19 @@ public class Command {
         } else if (command.equals(DELETE)) {
             tasks.delete(message);
         } else if (command.equals(DEADLINE)) {
-            tasks.deadline(message);
-            tasks.acknowledge();
+            try {
+                tasks.deadline(message);
+                tasks.acknowledge();
+            } catch (DateTimeException e) {
+                System.out.println("Date should be in format YYYY-MM-DD.");
+            }
         } else if (command.equals(EVENT)) {
-            tasks.event(message);
-            tasks.acknowledge();
+            try {
+                tasks.event(message);
+                tasks.acknowledge();
+            } catch (DateTimeException e) {
+                System.out.println("Date should be in format YYYY-MM-DD.");
+            }
         } else if (command.equals(TODO)) {
             tasks.todo(message);
             tasks.acknowledge();
@@ -71,7 +79,7 @@ public class Command {
         try {
             storage.writeToFile(tasks.getTask());
         } catch (IOException e){
-            System.out.println("Something went wrong: " + e.getMessage());
+            System.out.println("Cannot write to file.");
         }
 
     }

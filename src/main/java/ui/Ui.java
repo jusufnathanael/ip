@@ -2,15 +2,18 @@ package ui;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import tasks.Task;
+import commands.Command;
 
 
 public class Ui {
 
-    private static final String DIVIDER = "-------------------------------------------------------";
+    public final String DIVIDER = "-------------------------------------------" +
+            "--------------------------------------";
     private static final String BREAK = System.lineSeparator();
     private static final String LOGO = " ____        _        \n"
             + "|  _ \\ _   _| | _____ \n"
@@ -82,4 +85,20 @@ public class Ui {
         }
     }
 
+    public void printCurrentDate() {
+        System.out.println("Current Date: " + LocalDate.now() + BREAK + DIVIDER);
+    }
+
+    public void printCorrectFormat(String command) {
+        if (command.equals(Command.DEADLINE)) {
+            System.out.println("OOPS!!! Please use this format: " +
+                    "deadline <description> /by YYYY-MM-DD");
+        } else if (command.equals(Command.EVENT)) {
+            System.out.println("OOPS!!! Please use this format: " +
+                    "event <description> /at YYYY-MM-DD");
+        } else if (command.equals(Command.TODO)){
+            System.out.println("OOPS!!! Please use this format: " +
+                    "todo <description>");
+        }
+    }
 }
