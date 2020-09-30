@@ -2,6 +2,8 @@ package tasks;
 
 import java.time.DateTimeException;
 import java.util.ArrayList;
+
+import exceptions.DukeException;
 import ui.Ui;
 
 
@@ -30,16 +32,22 @@ public class TaskList {
 
     public void clear() {
         tasks.clear();
+        ui.printList(tasks);
     }
 
     public void list() {
         ui.printList(tasks);
     }
 
-    public void done(String message) {
+    public void done(String message) throws DukeException {
         int i = Integer.parseInt(message.substring(5)) - 1;
-        tasks.get(i).markAsDone();
-        ui.printDoneMessage(tasks.get(i).getStatusIcon(), tasks.get(i).getDescription());
+        if (!tasks.get(i).isDone) {
+            tasks.get(i).markAsDone();
+            ui.printDoneMessage(tasks.get(i).getStatusIcon(), tasks.get(i).getDescription());
+        }
+        else {
+            throw new DukeException();
+        }
     }
 
     public void deadline(String message) {

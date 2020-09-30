@@ -48,7 +48,11 @@ public class Command {
         } else if (command.equals(LIST)) {
             tasks.list();
         } else if (command.equals(DONE)) {
-            tasks.done(message);
+            try {
+                tasks.done(message);
+            } catch (DukeException e){
+                System.out.println("This task is already finished!");
+            }
         } else if (command.equals(DELETE)) {
             tasks.delete(message);
         } else if (command.equals(DEADLINE)) {

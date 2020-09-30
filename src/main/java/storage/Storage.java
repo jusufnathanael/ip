@@ -72,11 +72,14 @@ public class Storage {
                 Command c = p.parseCommand();
                 c.addReadFile(tasks, done);
             }
-            catch (DukeException e){
+            catch (DukeException e) {
                 System.out.println("Cannot read file!");
             }
         }
 
+        if (tasks.getTask().size() == 0) {
+            System.out.println("Currently there are no tasks in the list.");
+        }
         System.out.println(new Ui().DIVIDER);
         return tasks.getTask();
     }

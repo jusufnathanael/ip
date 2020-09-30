@@ -62,9 +62,13 @@ public class Ui {
     }
 
     public void printList(ArrayList<Task> t) {
-        for (int i = 0; i < t.size(); i++) {
-            System.out.print(i + 1 + ". ");
-            System.out.println(t.get(i));
+        if (t.size() == 0){
+            System.out.println("Currently there are no tasks in the list.");
+        } else {
+            for (int i = 0; i < t.size(); i++) {
+                System.out.print(i + 1 + ". ");
+                System.out.println(t.get(i));
+            }
         }
     }
 
