@@ -82,6 +82,21 @@ public class Storage {
         return returnMessage.append(message.substring(3)).toString();
     }
 
+    /**
+     * Checks whether the storage file exist or not
+     */
+    public void checkFile() throws IOException {
+        File dir = new File("data");
+        if (dir.mkdir()){
+            System.out.println("New directory created: " + dir.getName());
+        }
+        File f = new File("data/data.txt");
+        if (f.createNewFile()) {
+            System.out.println("New file created: " + f.getName());
+        } else {
+            System.out.println("Loaded from the file: " + f.getName());
+        }
+    }
 
     /**
      * Loads the data from the storage file to a new TaskList

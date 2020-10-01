@@ -26,7 +26,10 @@ public class TaskList {
         return this.tasks;
     }
 
-    public void delete(String message) {
+    public void delete(String message) throws NumberFormatException {
+        if (message.length() < 8) {
+            throw new NumberFormatException();
+        }
         int l = Integer.parseInt(message.substring(7)) - 1;
         ui.acknowledge(tasks.get(l), "del", tasks.size() - 1);
         tasks.remove(tasks.get(l));
@@ -34,14 +37,17 @@ public class TaskList {
 
     public void clear() {
         tasks.clear();
-        ui.printList(tasks);
+        ui.printClear();
     }
 
     public void list() {
         ui.printList(tasks);
     }
 
-    public void done(String message) throws DukeException {
+    public void done(String message) throws DukeException, NumberFormatException {
+        if (message.length() < 6) {
+            throw new NumberFormatException();
+        }
         int i = Integer.parseInt(message.substring(5)) - 1;
         if (!tasks.get(i).isDone) {
             tasks.get(i).markAsDone();

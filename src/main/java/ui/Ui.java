@@ -104,6 +104,13 @@ public class Ui {
     }
 
     /**
+     * Prints an acknowledgement message when user clear the tasks list.
+     */
+    public void printClear() {
+        System.out.println("List cleared! Currently there are no tasks in the list.");
+    }
+
+    /**
      * Find an item according to the input keyword.
      *
      * @param tasks current list of tasks

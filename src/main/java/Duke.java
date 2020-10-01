@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
@@ -36,9 +37,12 @@ public class Duke {
             System.out.println("File does not end with .txt");
         }
         try {
+            storage.checkFile();
             tasks = new TaskList(storage.load());
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 
