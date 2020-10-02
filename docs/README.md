@@ -64,7 +64,7 @@ Now you have 1 task in your list.
 #### Adding a new deadline: `deadline`
 Adds a new deadline to the task list.
 
-Format: `deadline <description> by: <time in YYYY-MM-DD>`
+Format: `deadline <description> by: YYYY-MM-DD`
 
 Examples:
 ```
@@ -83,7 +83,7 @@ Now you have 3 task in your list.
 #### Adding a new event: `event`
 Adds a new event to the task list.
 
-Format: `event <description> at: <time in YYYY-MM-DD>`
+Format: `event <description> at: YYYY-MM-DD`
 
 Examples:
 ```
@@ -123,7 +123,7 @@ We found 2 items in the list:
 #### Marking as done: `done`
 Marks a certain task as done given the index number.
 
-Format: `done <number>`
+Format: `done <index>`
 
 Examples:
 ```
@@ -141,7 +141,7 @@ Nice! I've marked this task as done:
 #### Deleting a task: `delete`
 Deletes a task given its index number.
 
-Format: `delete <number>`
+Format: `delete <index>`
 
 Examples:
 ```
@@ -180,4 +180,16 @@ Bye. Hope to see you again soon!
 ```
 <br>
 
+## Command Summary
 
+Command | Format, Examples
+------- | ----------------
+Bye | `bye`
+Clear | `clear`
+Deadline | `deadline <description> by: YYYY-MM-DD`, e.g. `deadline Finish CS1010 Assignment 2 by: 2020-10-10`
+Delete | `delete <index>`, e.g. `delete 1`
+Done | `done <index>`, e.g. `done 2`
+Event | `event <description> at: YYYY-MM-DD`, e.g. `event CS1010 Exam at: 2020-11-25`
+Find | `find <keyword>`, e.g. `find exam`
+List | `list`
+Todo | `todo <description>`, e.g. `todo Prepare for CS1010 Exam`
