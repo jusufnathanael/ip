@@ -128,7 +128,7 @@ public class Ui {
         if (count == 0) {
             System.out.println("Sorry, we found no item with \"" + keyword + "\" in the list.");
         } else {
-            System.out.println("We found " + count + " item in the list:");
+            System.out.println("We found " + count + " item" + (count == 1 ? "" : "s") + " in the list:");
             this.printList(result);
         }
     }
