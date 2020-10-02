@@ -33,7 +33,13 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 
 #### Listing all tasks: `list` 
 Shows a list of all current tasks.
+
 Format: `list`
+
+Output:
+```
+1. [T][✘] Create Zoom account
+```
 
 <br>
 
@@ -42,8 +48,16 @@ Adds a new todo item to the task list.
 Format: `todo <description>`
 
 Examples:
-- todo Do CS2113T assignment 1
-- todo Prepare for ST2334 final
+```
+todo Do CS2113T assignment 1
+todo Prepare for ST2334 final
+```
+Output:
+```
+Got it. I've added this task:
+    [T][✘] Do CS2113T assignment 1
+Now you have 1 task in your list.
+```
 
 <br>
 
@@ -57,17 +71,31 @@ Examples:
 deadline Finish CS2101 reflection by: 2020-10-09
 deadline Finish CS2113T team project by: 2020-11-10
 ```
+Output:
+```
+Got it. I've added this task:
+    [D][✘] Finish CS2101 reflection by: 2020-10-09
+Now you have 3 task in your list.
+```
 
 <br>
 
 #### Adding a new event: `event`
 Adds a new event to the task list.
 
-Format: `deadline <description> at: <time in YYYY-MM-DD>`
+Format: `event <description> at: <time in YYYY-MM-DD>`
 
 Examples:
-- event Watch concert in YST at: 2020-10-23
-- event CS1010 final exam at: 2020-11-24 
+```
+event Watch concert in YST at: 2020-10-23
+event CS2113T final exam at: 2020-12-01 
+```
+Output:
+```
+Got it. I've added this task:
+    [E][✘] Watch concert in YST at: 2020-10-23
+Now you have 5 task in your list.
+```
 
 <br>
 
@@ -79,8 +107,16 @@ Format: `find <keyword>`
 
 
 Examples:
-- find exam
-- find 2020-10
+```
+find CS2101
+find 2020-10
+```
+Output:
+```
+We found 2 items in the list:
+1. [D][✘] Finish CS2113T team project by: 2020-11-10
+2. [E][✘] CS2113T final exam at: 2020-12-01 
+```
 
 <br>
 
@@ -90,8 +126,15 @@ Marks a certain task as done given the index number.
 Format: `done <number>`
 
 Examples:
-- done 1 (mark the first task as done)
-- done 2 (mark the second task as done)
+```
+done 1 (mark the first task as done)
+done 2 (mark the second task as done)
+```
+Output:
+```
+Nice! I've marked this task as done:
+[✓] Finish CS2101 reflection by: 2020-10-09
+```
 
 <br>
 
@@ -101,8 +144,16 @@ Deletes a task given its index number.
 Format: `delete <number>`
 
 Examples:
-- delete 1 (delete the current first task)
-- delete 2 (delete the current second task)
+```
+delete 1 (delete the current first task)
+delete 2 (delete the current second task)
+```
+Output:
+```
+Got it. I've removed this task:
+    [T][✓] Finish CS2101 reflection by: 2020-10-09
+Now you have 5 task in your list.
+```
 
 <br>
 
@@ -111,6 +162,11 @@ Clears all the tasks inside the list.
 
 Format: `clear`
 
+Output:
+```
+List cleared! Currently there are no tasks in the list.
+```
+
 <br>
 
 #### Exiting the program: `bye`
@@ -118,6 +174,10 @@ Exits the program.
 
 Format: `bye`
 
+Output:
+```
+Bye. Hope to see you again soon!
+```
 <br>
 
 
