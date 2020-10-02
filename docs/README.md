@@ -11,7 +11,7 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
     - Adding a new deadline: `deadline`
     - Adding a new event: `event`
     - Finding tasks by a keyword: `find`
-    - Marking a task as done: `done`
+    - Marking as done: `done`
     - Deleting a task: `delete`
     - Clearing all tasks: `clear`
     - Exiting the program: `bye`
@@ -39,16 +39,18 @@ Examples:
 - todo Do CS2113T assignment 1
 - todo Prepare for ST2334 final
 
-#### Adding a new todo: `deadline`
+#### Adding a new deadline: `deadline`
 Adds a new deadline to the task list.
+
 Format: `deadline <description> by: <time in YYYY-MM-DD>`
 
 Examples:
 - deadline Finish CS2101 reflection by: 2020-10-09
 - deadline Finish CS2113T team project by: 2020-11-10
 
-#### Adding a new todo: `event`
+#### Adding a new event: `event`
 Adds a new event to the task list.
+
 Format: `deadline <description> at: <time in YYYY-MM-DD>`
 
 Examples:
@@ -60,12 +62,39 @@ Finds tasks that contain any of the given keywords.
 
 Format: `find <keyword>`
 - Keywords are case-sensitive.
-- T
 
 
+Examples:
+- find exam
+- find 2020-10
 
-#### Marking a task as done: `done`
+#### Marking as done: `done`
+Marks a certain task as done given the index number.
+
+Format: `done <number>`
+
+Examples:
+- done 1 (mark the first task as done)
+- done 2 (mark the second task as done)
+
+
 #### Deleting a task: `delete`
+Deletes a task given its index number.
+
+Format: `delete <number>`
+
+Examples:
+- delete 1 (delete the current first task)
+- delete 2 (delete the current second task)
+
 #### Clearing all tasks: `clear`
+Clears all the tasks inside the list.
+
+Format: `clear`
+
 #### Exiting the program: `bye`
-#### Usage
+Exits the program.
+
+Format: `bye`
+
+
