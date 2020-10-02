@@ -6,13 +6,13 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 
 - Quick start
 - Features
-    - Showing the list of tasks: `list`
+    - Listing all tasks: `list`
     - Adding a new todo: `todo`
     - Adding a new deadline: `deadline`
     - Adding a new event: `event`
+    - Finding tasks by a keyword: `find`
     - Marking a task as done: `done`
     - Deleting a task: `delete`
-    - Finding tasks by a keyword: `find`
     - Clearing all tasks: `clear`
     - Exiting the program: `bye`
 - Command Summary
@@ -20,26 +20,52 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 ## Quick Start
 
 1. Ensure that you have `Java 11` installed in your Computer.
-2. Download the latest duke.jar from here.
+2. Download the latest duke.jar from [here](https://github.com/jusufnathanael/ip/releases/tag/v0.2).
 3. Copy the file to the folder you want to use as the home folder.
 4. Launch the file using the `java -jar` command (`java -jar duke.jar`).
 5. Refer to the Features section below for details on what type of commands you can enter.
 
 ## Features
 
-### Feature 1 
-Description of feature.
+#### Listing all tasks: `list` 
+Shows a list of all current tasks.
+Format: `list`
 
-## Usage
+#### Adding a new todo: `todo`
+Adds a new todo item to the task list.
+Format: `todo <description>`
 
-### `Keyword` - Describe action
+Examples:
+- todo Do CS2113T assignment 1
+- todo Prepare for ST2334 final
 
-Describe action and its outcome.
+#### Adding a new todo: `deadline`
+Adds a new deadline to the task list.
+Format: `deadline <description> by: <time in YYYY-MM-DD>`
 
-Example of usage: 
+Examples:
+- deadline Finish CS2101 reflection by: 2020-10-09
+- deadline Finish CS2113T team project by: 2020-11-10
 
-`keyword (optional arguments)`
+#### Adding a new todo: `event`
+Adds a new event to the task list.
+Format: `deadline <description> at: <time in YYYY-MM-DD>`
 
-Expected outcomes:
+Examples:
+- event Watch concert in YST at: 2020-10-23
+- event CS1010 final exam at: 2020-11-24 
 
-`outcome`
+#### Finding tasks by a keyword: `find`
+Finds tasks that contain any of the given keywords.
+
+Format: `find <keyword>`
+- Keywords are case-sensitive.
+- T
+
+
+
+#### Marking a task as done: `done`
+#### Deleting a task: `delete`
+#### Clearing all tasks: `clear`
+#### Exiting the program: `bye`
+#### Usage
