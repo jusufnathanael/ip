@@ -195,3 +195,7 @@ List | `list`
 Todo | `todo <description>`, e.g. `todo Prepare for CS1010 Exam`
 
 <br>
+
+_Reference: https://se-education.org/addressbook-level3/UserGuide.html_
+
+<br>
