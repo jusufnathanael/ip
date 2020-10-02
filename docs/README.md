@@ -7,14 +7,14 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 - Quick start
 - Features
     - [Listing all tasks](#listing-all-tasks-list): `list`
-    - [Adding a new todo](#adding-a-new-todo): `todo`
-    - [Adding a new deadline](#adding-a-new-deadline): `deadline`
-    - [Adding a new event](#adding-a-new-event): `event`
-    - [Finding tasks by a keyword](#finding-tasks-by-a-keyword): `find`
-    - [Marking as done](#marking-as-done): `done`
-    - [Deleting a task](#deleting-a-task): `delete`
-    - [Clearing all tasks](#clearing-all-tasks): `clear`
-    - [Exiting the program](#exiting-the-program): `bye`
+    - [Adding a new todo](#adding-a-new-todo-todo): `todo`
+    - [Adding a new deadline](#adding-a-new-deadline-deadline): `deadline`
+    - [Adding a new event](#adding-a-new-event-event): `event`
+    - [Finding tasks by a keyword](#finding-tasks-by-a-keyword-find): `find`
+    - [Marking as done](#marking-as-done-done): `done`
+    - [Deleting a task](#deleting-a-task-delete): `delete`
+    - [Clearing all tasks](#clearing-all-tasks-clear): `clear`
+    - [Exiting the program](#exiting-the-program-bye): `bye`
 - Command Summary
 
 <br>
