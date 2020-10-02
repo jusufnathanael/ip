@@ -178,7 +178,7 @@ Output:
 ```
 Bye. Hope to see you again soon!
 ```
-<br>
+<br><br>
 
 ## Command Summary
 
@@ -193,3 +193,5 @@ Event | `event <description> at: YYYY-MM-DD`, e.g. `event CS1010 Exam at: 2020-1
 Find | `find <keyword>`, e.g. `find exam`
 List | `list`
 Todo | `todo <description>`, e.g. `todo Prepare for CS1010 Exam`
+
+<br>
