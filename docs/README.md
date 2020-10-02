@@ -7,17 +7,17 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 - Quick start
 - Features
     - [Listing all tasks](#listing-all-tasks-list): `list`
-    - Adding a new todo: `todo`
-    - Adding a new deadline: `deadline`
-    - Adding a new event: `event`
-    - Finding tasks by a keyword: `find`
-    - Marking as done: `done`
-    - Deleting a task: `delete`
-    - Clearing all tasks: `clear`
-    - Exiting the program: `bye`
+    - [Adding a new todo](#adding-a-new-todo): `todo`
+    - [Adding a new deadline](#adding-a-new-deadline): `deadline`
+    - [Adding a new event](#adding-a-new-event): `event`
+    - [Finding tasks by a keyword](#finding-tasks-by-a-keyword): `find`
+    - [Marking as done](#marking-as-done): `done`
+    - [Deleting a task](#deleting-a-task): `delete`
+    - [Clearing all tasks](#clearing-all-tasks): `clear`
+    - [Exiting the program](#exiting-the-program): `bye`
 - Command Summary
 
-<br><br>
+<br>
 
 ## Quick Start
 
@@ -27,11 +27,9 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
 4. Launch the file using the `java -jar` command (`java -jar duke.jar`).
 5. Refer to the Features section below for details on what type of commands you can enter.
 
-<br><br>
+<br>
 
 ## Features
-
-<br>
 
 #### Listing all tasks: `list` 
 Shows a list of all current tasks.
