@@ -53,8 +53,10 @@ Adds a new deadline to the task list.
 Format: `deadline <description> by: <time in YYYY-MM-DD>`
 
 Examples:
-- deadline Finish CS2101 reflection by: 2020-10-09
-- deadline Finish CS2113T team project by: 2020-11-10
+```
+deadline Finish CS2101 reflection by: 2020-10-09
+deadline Finish CS2113T team project by: 2020-11-10
+```
 
 <br>
 
