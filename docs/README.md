@@ -4,8 +4,8 @@ Duke is a Personal Assistant Chatbot that helps a person to organise and keep tr
 optimized for use via a Command Line Interface (CLI).
 The name Duke was chosen in honor of Duke, the Java Mascot.
 
-- Quick start
-- Features
+- [Quick start](#quick-start)
+- [Features](#features)
     - [Listing all tasks](#listing-all-tasks-list): `list`
     - [Adding a new todo](#adding-a-new-todo-todo): `todo`
     - [Adding a new deadline](#adding-a-new-deadline-deadline): `deadline`
@@ -15,7 +15,7 @@ The name Duke was chosen in honor of Duke, the Java Mascot.
     - [Deleting a task](#deleting-a-task-delete): `delete`
     - [Clearing all tasks](#clearing-all-tasks-clear): `clear`
     - [Exiting the program](#exiting-the-program-bye): `bye`
-- Command Summary
+- [Command Summary](#command-summary)
 
 <br>
 
